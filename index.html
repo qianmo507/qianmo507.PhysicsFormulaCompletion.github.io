@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>大学物理公式考察</title>
+  <link rel="stylesheet" href="./vendor/katex/katex.min.css">
+  <link rel="stylesheet" href="./prototype.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar panel">
+      <h1>大学物理公式考察</h1>
+      <strong id="active-module-title">1 / 10</strong>
+    </header>
+
+    <main class="simple-layout">
+      <section class="panel practice-panel">
+        <article class="exercise-card compact-card">
+          <div class="exercise-head">
+            <h2>公式填写</h2>
+            <div class="head-actions">
+              <button id="blank-prev" class="ghost-button" type="button">上一题</button>
+              <button id="blank-refresh" class="ghost-button" type="button">下一题</button>
+            </div>
+          </div>
+          <p id="blank-prompt" class="exercise-prompt"></p>
+          <div id="blank-formula" class="formula-chip"></div>
+          <form id="blank-form" class="blank-form"></form>
+          <div class="exercise-actions compact-actions">
+            <button id="blank-reset" class="ghost-button" type="button">重置</button>
+          </div>
+          <div id="blank-hint" class="hint-panel" hidden></div>
+          <p id="blank-feedback" class="feedback" aria-live="polite"></p>
+        </article>
+      </section>
+
+      <section id="category-panel" class="panel category-panel">
+        <article class="exercise-card compact-card">
+          <div class="exercise-head">
+            <h2>归类</h2>
+          </div>
+          <div id="module-tabs" class="module-tabs" aria-label="类别选项"></div>
+          <p id="module-summary-text" class="feedback" aria-live="polite"></p>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <script src="./vendor/katex/katex.min.js"></script>
+  <script src="./prototype.js"></script>
+</body>
+</html>
