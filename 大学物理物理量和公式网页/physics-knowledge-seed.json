@@ -1,0 +1,795 @@
+{
+  "version": "1.0.0",
+  "meta": {
+    "title": "大学物理基础知识结构种子数据",
+    "scope": "基础物理量、核心公式、实验链",
+    "globalTrunks": [
+      "r_or_s_and_t_to_v_to_a_to_F",
+      "m_and_v_to_p_to_dp_to_I",
+      "F_and_r_to_A_to_dEk_and_m_and_v_to_Ek"
+    ],
+    "displayPolicy": {
+      "globalGraph": {
+        "showNodeLevels": ["core"],
+        "showRelationTypes": ["bridge"],
+        "hideRelationTypes": ["measurement_support"]
+      },
+      "moduleGraph": {
+        "showNodeLevels": ["core", "extended"],
+        "showRelationTypes": ["depends_on", "defines", "bridge"]
+      },
+      "experimentView": {
+        "showRelationTypes": ["measurement_support", "depends_on", "defines"]
+      }
+    }
+  },
+  "modules": [
+    {
+      "id": "mod_kinematics",
+      "title": "运动学",
+      "summary": "从位移和时间到速度、加速度",
+      "coreNodeIds": ["q_t", "q_s", "q_r", "q_v", "q_v_vec", "q_a", "f_v_ds_dt", "f_v_dr_dt", "f_a_dv_dt"]
+    },
+    {
+      "id": "mod_dynamics",
+      "title": "动力学",
+      "summary": "从动量变化率到受力关系",
+      "coreNodeIds": ["q_t", "q_p", "q_F", "f_F_ma"]
+    },
+    {
+      "id": "mod_momentum",
+      "title": "动量与冲量",
+      "summary": "从质量和速度到动量变化与冲量",
+      "coreNodeIds": ["q_m", "q_v_vec", "q_p", "q_dp", "q_I", "f_p_mv", "f_I_dp", "f_I_int_Fdt"]
+    },
+    {
+      "id": "mod_energy",
+      "title": "功和能",
+      "summary": "从力和位移到功与动能变化",
+      "coreNodeIds": ["q_F", "q_r", "q_A", "q_Ek", "q_dEk", "f_A_int_Fdr", "f_Ek_half_mv2", "f_dEk_A"]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "q_t",
+      "label": "时间",
+      "symbol": "t",
+      "nodeType": "quantity",
+      "moduleId": "mod_kinematics",
+      "layer": "base",
+      "vectorOrScalar": "scalar",
+      "measureType": "direct",
+      "displayLevel": "core",
+      "description": "描述过程持续时间的基础物理量"
+    },
+    {
+      "id": "q_s",
+      "label": "路程",
+      "symbol": "s",
+      "nodeType": "quantity",
+      "moduleId": "mod_kinematics",
+      "layer": "base",
+      "vectorOrScalar": "scalar",
+      "measureType": "direct",
+      "displayLevel": "core",
+      "description": "物体运动路径长度"
+    },
+    {
+      "id": "q_r",
+      "label": "位移",
+      "symbol": "r⃗",
+      "nodeType": "quantity",
+      "moduleId": "mod_kinematics",
+      "layer": "base",
+      "vectorOrScalar": "vector",
+      "measureType": "direct",
+      "displayLevel": "core",
+      "description": "位置变化量，对应矢量位移。"
+    },
+    {
+      "id": "q_v",
+      "label": "瞬时速率",
+      "symbol": "v",
+      "nodeType": "quantity",
+      "moduleId": "mod_kinematics",
+      "layer": "derived",
+      "vectorOrScalar": "scalar",
+      "measureType": "derived",
+      "displayLevel": "core",
+      "description": "路程对时间的变化率，对应瞬时速率，是标量。"
+    },
+    {
+      "id": "q_v_vec",
+      "label": "瞬时速度",
+      "symbol": "v⃗",
+      "nodeType": "quantity",
+      "moduleId": "mod_kinematics",
+      "layer": "derived",
+      "vectorOrScalar": "vector",
+      "measureType": "derived",
+      "displayLevel": "core",
+      "description": "位移对时间的变化率，对应瞬时速度，是矢量。"
+    },
+    {
+      "id": "q_a",
+      "label": "加速度",
+      "symbol": "a⃗",
+      "nodeType": "quantity",
+      "moduleId": "mod_kinematics",
+      "layer": "derived",
+      "vectorOrScalar": "vector",
+      "measureType": "derived",
+      "displayLevel": "core",
+      "description": "矢量速度随时间变化的快慢和方向。"
+    },
+    {
+      "id": "q_m",
+      "label": "质量",
+      "symbol": "m",
+      "nodeType": "quantity",
+      "moduleId": "mod_dynamics",
+      "layer": "base",
+      "vectorOrScalar": "scalar",
+      "measureType": "direct",
+      "displayLevel": "core",
+      "description": "表征物体惯性大小的物理量"
+    },
+    {
+      "id": "q_F",
+      "label": "合外力",
+      "symbol": "F⃗",
+      "nodeType": "quantity",
+      "moduleId": "mod_dynamics",
+      "layer": "derived",
+      "vectorOrScalar": "vector",
+      "measureType": "law",
+      "displayLevel": "core",
+      "description": "作用在物体上的合外力矢量。"
+    },
+    {
+      "id": "q_p",
+      "label": "动量",
+      "symbol": "p⃗",
+      "nodeType": "quantity",
+      "moduleId": "mod_momentum",
+      "layer": "derived",
+      "vectorOrScalar": "vector",
+      "measureType": "derived",
+      "displayLevel": "core",
+      "description": "质量与瞬时速度共同决定的矢量状态量。"
+    },
+    {
+      "id": "q_dp",
+      "label": "动量变化",
+      "symbol": "Δp⃗",
+      "nodeType": "quantity",
+      "moduleId": "mod_momentum",
+      "layer": "derived",
+      "vectorOrScalar": "vector",
+      "measureType": "derived",
+      "displayLevel": "extended",
+      "description": "动量在过程中的变化量，是矢量。"
+    },
+    {
+      "id": "q_I",
+      "label": "冲量",
+      "symbol": "I⃗",
+      "nodeType": "quantity",
+      "moduleId": "mod_momentum",
+      "layer": "derived",
+      "vectorOrScalar": "vector",
+      "measureType": "law",
+      "displayLevel": "core",
+      "description": "力在时间上的累积效应，结果为矢量。"
+    },
+    {
+      "id": "q_A",
+      "label": "功",
+      "symbol": "A",
+      "nodeType": "quantity",
+      "moduleId": "mod_energy",
+      "layer": "derived",
+      "vectorOrScalar": "scalar",
+      "measureType": "law",
+      "displayLevel": "core",
+      "description": "力在位移过程中的能量转移量度"
+    },
+    {
+      "id": "q_Ek",
+      "label": "动能",
+      "symbol": "E_k",
+      "nodeType": "quantity",
+      "moduleId": "mod_energy",
+      "layer": "derived",
+      "vectorOrScalar": "scalar",
+      "measureType": "derived",
+      "displayLevel": "core",
+      "description": "物体因运动而具有的能量"
+    },
+    {
+      "id": "q_dEk",
+      "label": "动能变化",
+      "symbol": "ΔE_k",
+      "nodeType": "quantity",
+      "moduleId": "mod_energy",
+      "layer": "derived",
+      "vectorOrScalar": "scalar",
+      "measureType": "law",
+      "displayLevel": "extended",
+      "description": "过程中动能的变化量"
+    },
+    {
+      "id": "f_v_ds_dt",
+      "label": "瞬时速率定义式",
+      "symbol": "v = ds/dt",
+      "nodeType": "formula",
+      "moduleId": "mod_kinematics",
+      "layer": "law",
+      "vectorOrScalar": "mixed",
+      "measureType": "law",
+      "displayLevel": "core",
+      "description": "路程对时间的变化率给出瞬时速率，结果是标量。"
+    },
+    {
+      "id": "f_v_dr_dt",
+      "label": "瞬时速度定义式",
+      "symbol": "v⃗ = dr⃗/dt",
+      "nodeType": "formula",
+      "moduleId": "mod_kinematics",
+      "layer": "law",
+      "vectorOrScalar": "mixed",
+      "measureType": "law",
+      "displayLevel": "extended",
+      "description": "位移对时间的变化率给出瞬时速度，结果是矢量。"
+    },
+    {
+      "id": "f_a_dv_dt",
+      "label": "加速度定义式",
+      "symbol": "a⃗ = dv⃗/dt",
+      "nodeType": "formula",
+      "moduleId": "mod_kinematics",
+      "layer": "law",
+      "vectorOrScalar": "mixed",
+      "measureType": "law",
+      "displayLevel": "core",
+      "description": "矢量速度对时间的变化率定义加速度。"
+    },
+    {
+      "id": "f_F_ma",
+      "label": "牛顿第二定律",
+      "symbol": "F⃗ = dp⃗/dt",
+      "nodeType": "formula",
+      "moduleId": "mod_dynamics",
+      "layer": "law",
+      "vectorOrScalar": "mixed",
+      "measureType": "law",
+      "displayLevel": "core",
+      "description": "合外力等于动量对时间的变化率，这是广义形式的牛顿第二定律。"
+    },
+    {
+      "id": "f_p_mv",
+      "label": "动量定义式",
+      "symbol": "p⃗ = mv⃗",
+      "nodeType": "formula",
+      "moduleId": "mod_momentum",
+      "layer": "law",
+      "vectorOrScalar": "mixed",
+      "measureType": "law",
+      "displayLevel": "core",
+      "description": "质量与瞬时速度共同定义动量，动量是矢量。"
+    },
+    {
+      "id": "f_I_dp",
+      "label": "冲量定理",
+      "symbol": "I⃗ = Δp⃗",
+      "nodeType": "formula",
+      "moduleId": "mod_momentum",
+      "layer": "law",
+      "vectorOrScalar": "mixed",
+      "measureType": "law",
+      "displayLevel": "core",
+      "description": "冲量等于动量变化，二者都是矢量。"
+    },
+    {
+      "id": "f_I_int_Fdt",
+      "label": "冲量积分式",
+      "symbol": "I⃗ = ∫F⃗dt",
+      "nodeType": "formula",
+      "moduleId": "mod_momentum",
+      "layer": "law",
+      "vectorOrScalar": "mixed",
+      "measureType": "law",
+      "displayLevel": "extended",
+      "description": "变力作用下，冲量等于力对时间的积分。"
+    },
+    {
+      "id": "f_A_int_Fdr",
+      "label": "功的定义式",
+      "symbol": "A = ∫F⃗·dr⃗",
+      "nodeType": "formula",
+      "moduleId": "mod_energy",
+      "layer": "law",
+      "vectorOrScalar": "mixed",
+      "measureType": "law",
+      "displayLevel": "core",
+      "description": "功等于力沿位移方向的线积分。"
+    },
+    {
+      "id": "f_Ek_half_mv2",
+      "label": "动能表达式",
+      "symbol": "E_k = 1/2 mv^2",
+      "nodeType": "formula",
+      "moduleId": "mod_energy",
+      "layer": "law",
+      "vectorOrScalar": "mixed",
+      "measureType": "law",
+      "displayLevel": "core",
+      "description": "由质量和瞬时速率给出动能。"
+    },
+    {
+      "id": "f_dEk_A",
+      "label": "动能定理",
+      "symbol": "ΔE_k = A",
+      "nodeType": "formula",
+      "moduleId": "mod_energy",
+      "layer": "law",
+      "vectorOrScalar": "mixed",
+      "measureType": "law",
+      "displayLevel": "core",
+      "description": "外力所做总功等于动能变化"
+    }
+  ],
+  "relations": [
+    {
+      "id": "rel_01",
+      "source": "q_s",
+      "target": "f_v_ds_dt",
+      "relationType": "depends_on",
+      "importance": "core",
+      "showInGlobalGraph": false,
+      "showInModuleGraph": true,
+      "description": "路程是速度定义式的输入量"
+    },
+    {
+      "id": "rel_02",
+      "source": "q_t",
+      "target": "f_v_ds_dt",
+      "relationType": "depends_on",
+      "importance": "core",
+      "showInGlobalGraph": false,
+      "showInModuleGraph": true,
+      "description": "时间是速度定义式的输入量"
+    },
+    {
+      "id": "rel_03",
+      "source": "f_v_ds_dt",
+      "target": "q_v",
+      "relationType": "defines",
+      "importance": "core",
+      "showInGlobalGraph": false,
+      "showInModuleGraph": true,
+      "description": "由路程定义瞬时速率"
+    },
+    {
+      "id": "rel_04",
+      "source": "q_r",
+      "target": "f_v_dr_dt",
+      "relationType": "depends_on",
+      "importance": "extended",
+      "showInGlobalGraph": false,
+      "showInModuleGraph": true,
+      "description": "位移是矢量速度定义式的输入量"
+    },
+    {
+      "id": "rel_05",
+      "source": "q_t",
+      "target": "f_v_dr_dt",
+      "relationType": "depends_on",
+      "importance": "extended",
+      "showInGlobalGraph": false,
+      "showInModuleGraph": true,
+      "description": "时间参与位移形式的速度定义"
+    },
+    {
+      "id": "rel_06",
+      "source": "f_v_dr_dt",
+      "target": "q_v_vec",
+      "relationType": "defines",
+      "importance": "extended",
+      "showInGlobalGraph": false,
+      "showInModuleGraph": true,
+      "description": "由位移定义瞬时速度"
+    },
+    {
+      "id": "rel_07",
+      "source": "q_v_vec",
+      "target": "f_a_dv_dt",
+      "relationType": "depends_on",
+      "importance": "core",
+      "showInGlobalGraph": true,
+      "showInModuleGraph": true,
+      "description": "瞬时速度是加速度定义式的输入量"
+    },
+    {
+      "id": "rel_08",
+      "source": "q_t",
+      "target": "f_a_dv_dt",
+      "relationType": "depends_on",
+      "importance": "core",
+      "showInGlobalGraph": false,
+      "showInModuleGraph": true,
+      "description": "时间是加速度定义式的输入量"
+    },
+    {
+      "id": "rel_09",
+      "source": "f_a_dv_dt",
+      "target": "q_a",
+      "relationType": "defines",
+      "importance": "core",
+      "showInGlobalGraph": true,
+      "showInModuleGraph": true,
+      "description": "由速度变化率定义加速度"
+    },
+    {
+      "id": "rel_10",
+      "source": "q_p",
+      "target": "f_F_ma",
+      "relationType": "bridge",
+      "importance": "core",
+      "showInGlobalGraph": true,
+      "showInModuleGraph": true,
+      "description": "动量把动量模块桥接到广义牛顿第二定律"
+    },
+    {
+      "id": "rel_11",
+      "source": "q_t",
+      "target": "f_F_ma",
+      "relationType": "depends_on",
+      "importance": "core",
+      "showInGlobalGraph": false,
+      "showInModuleGraph": true,
+      "description": "时间是广义牛顿第二定律的输入量"
+    },
+    {
+      "id": "rel_12",
+      "source": "f_F_ma",
+      "target": "q_F",
+      "relationType": "defines",
+      "importance": "core",
+      "showInGlobalGraph": true,
+      "showInModuleGraph": true,
+      "description": "由动量变化率给出合外力"
+    },
+    {
+      "id": "rel_13",
+      "source": "q_m",
+      "target": "f_p_mv",
+      "relationType": "depends_on",
+      "importance": "core",
+      "showInGlobalGraph": false,
+      "showInModuleGraph": true,
+      "description": "质量参与动量定义"
+    },
+    {
+      "id": "rel_14",
+      "source": "q_v_vec",
+      "target": "f_p_mv",
+      "relationType": "bridge",
+      "importance": "core",
+      "showInGlobalGraph": true,
+      "showInModuleGraph": true,
+      "description": "瞬时速度把运动学桥接到动量模块"
+    },
+    {
+      "id": "rel_15",
+      "source": "f_p_mv",
+      "target": "q_p",
+      "relationType": "defines",
+      "importance": "core",
+      "showInGlobalGraph": true,
+      "showInModuleGraph": true,
+      "description": "由质量和瞬时速度给出动量"
+    },
+    {
+      "id": "rel_16",
+      "source": "q_p",
+      "target": "q_dp",
+      "relationType": "bridge",
+      "importance": "extended",
+      "showInGlobalGraph": true,
+      "showInModuleGraph": true,
+      "description": "动量变化建立过程量节点"
+    },
+    {
+      "id": "rel_17",
+      "source": "q_dp",
+      "target": "f_I_dp",
+      "relationType": "depends_on",
+      "importance": "core",
+      "showInGlobalGraph": true,
+      "showInModuleGraph": true,
+      "description": "动量变化是冲量定理的输入量"
+    },
+    {
+      "id": "rel_18",
+      "source": "f_I_dp",
+      "target": "q_I",
+      "relationType": "defines",
+      "importance": "core",
+      "showInGlobalGraph": true,
+      "showInModuleGraph": true,
+      "description": "冲量等于动量变化"
+    },
+    {
+      "id": "rel_19",
+      "source": "q_F",
+      "target": "f_I_int_Fdt",
+      "relationType": "bridge",
+      "importance": "extended",
+      "showInGlobalGraph": true,
+      "showInModuleGraph": true,
+      "description": "力把动力学桥接到冲量积分式"
+    },
+    {
+      "id": "rel_20",
+      "source": "q_t",
+      "target": "f_I_int_Fdt",
+      "relationType": "depends_on",
+      "importance": "extended",
+      "showInGlobalGraph": false,
+      "showInModuleGraph": true,
+      "description": "时间参与冲量积分表达"
+    },
+    {
+      "id": "rel_21",
+      "source": "f_I_int_Fdt",
+      "target": "q_I",
+      "relationType": "defines",
+      "importance": "extended",
+      "showInGlobalGraph": false,
+      "showInModuleGraph": true,
+      "description": "积分表达给出冲量"
+    },
+    {
+      "id": "rel_22",
+      "source": "q_F",
+      "target": "f_A_int_Fdr",
+      "relationType": "bridge",
+      "importance": "core",
+      "showInGlobalGraph": true,
+      "showInModuleGraph": true,
+      "description": "力把动力学桥接到功和能模块"
+    },
+    {
+      "id": "rel_23",
+      "source": "q_r",
+      "target": "f_A_int_Fdr",
+      "relationType": "depends_on",
+      "importance": "core",
+      "showInGlobalGraph": true,
+      "showInModuleGraph": true,
+      "description": "位移是功定义式的输入量"
+    },
+    {
+      "id": "rel_24",
+      "source": "f_A_int_Fdr",
+      "target": "q_A",
+      "relationType": "defines",
+      "importance": "core",
+      "showInGlobalGraph": true,
+      "showInModuleGraph": true,
+      "description": "由力和位移关系定义功"
+    },
+    {
+      "id": "rel_25",
+      "source": "q_m",
+      "target": "f_Ek_half_mv2",
+      "relationType": "depends_on",
+      "importance": "core",
+      "showInGlobalGraph": false,
+      "showInModuleGraph": true,
+      "description": "质量参与动能表达式"
+    },
+    {
+      "id": "rel_26",
+      "source": "q_v",
+      "target": "f_Ek_half_mv2",
+      "relationType": "bridge",
+      "importance": "core",
+      "showInGlobalGraph": true,
+      "showInModuleGraph": true,
+      "description": "瞬时速率把运动学桥接到动能表达式"
+    },
+    {
+      "id": "rel_27",
+      "source": "f_Ek_half_mv2",
+      "target": "q_Ek",
+      "relationType": "defines",
+      "importance": "core",
+      "showInGlobalGraph": true,
+      "showInModuleGraph": true,
+      "description": "由质量和瞬时速率给出动能"
+    },
+    {
+      "id": "rel_28",
+      "source": "q_A",
+      "target": "f_dEk_A",
+      "relationType": "depends_on",
+      "importance": "core",
+      "showInGlobalGraph": true,
+      "showInModuleGraph": true,
+      "description": "功是动能定理的输入量"
+    },
+    {
+      "id": "rel_29",
+      "source": "f_dEk_A",
+      "target": "q_dEk",
+      "relationType": "defines",
+      "importance": "core",
+      "showInGlobalGraph": true,
+      "showInModuleGraph": true,
+      "description": "动能定理给出动能变化"
+    },
+    {
+      "id": "rel_30",
+      "source": "q_t",
+      "target": "exp_kinematics_motion",
+      "relationType": "measurement_support",
+      "importance": "core",
+      "showInGlobalGraph": false,
+      "showInModuleGraph": false,
+      "description": "时间是运动学实验的直接测量量"
+    },
+    {
+      "id": "rel_31",
+      "source": "q_s",
+      "target": "exp_kinematics_motion",
+      "relationType": "measurement_support",
+      "importance": "core",
+      "showInGlobalGraph": false,
+      "showInModuleGraph": false,
+      "description": "路程是运动学实验的直接测量量"
+    },
+    {
+      "id": "rel_32",
+      "source": "q_m",
+      "target": "exp_newton_2",
+      "relationType": "measurement_support",
+      "importance": "core",
+      "showInGlobalGraph": false,
+      "showInModuleGraph": false,
+      "description": "质量是牛顿第二定律实验的直接测量量"
+    },
+    {
+      "id": "rel_33",
+      "source": "q_t",
+      "target": "exp_newton_2",
+      "relationType": "measurement_support",
+      "importance": "core",
+      "showInGlobalGraph": false,
+      "showInModuleGraph": false,
+      "description": "时间是牛顿第二定律实验的直接测量量"
+    },
+    {
+      "id": "rel_34",
+      "source": "q_r",
+      "target": "exp_work_energy",
+      "relationType": "measurement_support",
+      "importance": "core",
+      "showInGlobalGraph": false,
+      "showInModuleGraph": false,
+      "description": "位移是功和能实验的直接测量量"
+    },
+    {
+      "id": "rel_35",
+      "source": "q_m",
+      "target": "exp_work_energy",
+      "relationType": "measurement_support",
+      "importance": "core",
+      "showInGlobalGraph": false,
+      "showInModuleGraph": false,
+      "description": "质量是功和能实验的直接测量量"
+    }
+  ],
+  "questionTemplates": [
+    {
+      "id": "qt_fill_01",
+      "taskType": "fill_blank",
+      "moduleId": "mod_kinematics",
+      "prompt": "速度定义式可写为 v = ( ) / ( )。",
+      "formulaNodeId": "f_v_ds_dt",
+      "answerNodeIds": ["q_s", "q_t"],
+      "uiSuggestion": "双空填空"
+    },
+    {
+      "id": "qt_classify_01",
+      "taskType": "classify",
+      "moduleId": "mod_kinematics",
+      "prompt": "将下列物理量按标量和矢量分类。",
+      "candidateNodeIds": ["q_s", "q_r", "q_v", "q_a", "q_t"],
+      "uiSuggestion": "拖拽到双栏"
+    },
+    {
+      "id": "qt_link_01",
+      "taskType": "local_link",
+      "moduleId": "mod_dynamics",
+      "prompt": "请把质量、加速度、合外力与对应定律正确连线。",
+      "candidateRelationIds": ["rel_10", "rel_11", "rel_12"],
+      "uiSuggestion": "局部连线"
+    },
+    {
+      "id": "qt_match_01",
+      "taskType": "match",
+      "moduleId": "mod_momentum",
+      "prompt": "将公式与物理意义匹配。",
+      "candidateNodeIds": ["f_p_mv", "f_I_dp", "f_I_int_Fdt"],
+      "uiSuggestion": "左右匹配"
+    },
+    {
+      "id": "qt_fill_02",
+      "taskType": "fill_blank",
+      "moduleId": "mod_energy",
+      "prompt": "动能表达式为 Ek = 1/2 ( ) ( )^2。",
+      "formulaNodeId": "f_Ek_half_mv2",
+      "answerNodeIds": ["q_m", "q_v"],
+      "uiSuggestion": "双空填空"
+    },
+    {
+      "id": "qt_sort_01",
+      "taskType": "step_sort",
+      "moduleId": "mod_dynamics",
+      "prompt": "请按实验流程排序：测量、计算速度、计算加速度、验证 F⃗ = dp⃗/dt。",
+      "experimentChainId": "exp_newton_2",
+      "uiSuggestion": "卡片排序"
+    }
+  ],
+  "experimentChains": [
+    {
+      "id": "exp_kinematics_motion",
+      "title": "匀变速直线运动基础实验",
+      "moduleIds": ["mod_kinematics"],
+      "directMeasures": ["q_s", "q_t"],
+      "derivedQuantities": ["q_v", "q_a"],
+      "keyFormulaIds": ["f_v_ds_dt", "f_a_dv_dt"],
+      "resultNodeIds": ["q_v", "q_a"],
+      "displaySteps": [
+        "记录位移和时间",
+        "根据位移和时间求速度",
+        "根据速度变化求加速度",
+        "判断运动状态"
+      ]
+    },
+    {
+      "id": "exp_newton_2",
+      "title": "牛顿第二定律验证",
+      "moduleIds": ["mod_kinematics", "mod_dynamics"],
+      "directMeasures": ["q_m", "q_s", "q_t"],
+      "derivedQuantities": ["q_v", "q_a", "q_F"],
+      "keyFormulaIds": ["f_v_ds_dt", "f_a_dv_dt", "f_F_ma"],
+      "resultNodeIds": ["q_F"],
+      "displaySteps": [
+        "测量质量、位移和时间",
+        "计算速度",
+        "计算加速度",
+        "代入 F⃗ = dp⃗/dt 进行验证",
+        "分析误差来源"
+      ]
+    },
+    {
+      "id": "exp_work_energy",
+      "title": "功和动能关系实验",
+      "moduleIds": ["mod_kinematics", "mod_dynamics", "mod_energy"],
+      "directMeasures": ["q_m", "q_r", "q_t"],
+      "derivedQuantities": ["q_v", "q_Ek", "q_A", "q_dEk"],
+      "keyFormulaIds": ["f_v_ds_dt", "f_Ek_half_mv2", "f_A_int_Fdr", "f_dEk_A"],
+      "resultNodeIds": ["q_A", "q_dEk"],
+      "displaySteps": [
+        "记录质量、位移和时间",
+        "求出速度和动能",
+        "根据受力与位移计算功",
+        "比较功与动能变化",
+        "给出实验结论"
+      ]
+    }
+  ]
+}
